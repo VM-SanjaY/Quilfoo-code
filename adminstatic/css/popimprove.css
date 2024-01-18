@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+  }
+
+  .h5yes{
+    color: #cc0000;
+    margin-left: 280px;
+  }
+  .openBtn {
+    display: flex;
+    justify-content:left;
+    margin-top: 100px;
+    padding: 0;
+  }
+  .openButton {
+    border: none;
+    border-radius: 16px;
+    background-color: #e75e8d;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+    position: fixed;
+  }
+  
+  .loginPopup {
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+  .formPopup {
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: 5%;
+    transform: translate(-50%, 5%);
+    border: 3px solid #999999;
+    z-index: 9;
+    margin-top: 45px;
+  }
+  .formContainer {
+    max-width: 100%;
+    padding: 20px;
+    background-color: #fff;
+  }
+  .formContainer input[type=text] {
+    width: 300px;
+    padding: 9px;
+    margin: 5px 0 20px 0;
+    border-radius: 18px;
+    border: none;
+    background: #f5f5f5;
+    text-indent: 10px;
+  }
+  .formContainer input[type=text]:focus,
+  .formContainer input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  .formContainer .btn {
+    padding: 12px 20px;
+    border: none;
+    background-color: #8ebf42;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    opacity: 0.8;
+  }
+  .formContainer .cancel {
+    background-color: #cc0000;
+  }
+  .formContainer .btn:hover,
+  .openButton:hover {
+    opacity: 1;
+  }
+  .closedesign{
+    display: flex;
+    justify-content: left;
+    color: black;
+    background-color: #cc0000;
+    font-size: large;
+  }
+  .disname{
+    display: flex;
+    justify-content: space-around;
+  }
+  .likedis{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  .howstyle{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .sitestyle{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .whysitestyle{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }

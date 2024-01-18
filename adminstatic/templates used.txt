@@ -1,0 +1,11 @@
+https://www.creative-tim.com/product/soft-ui-dashboard
+
+in scss - material-dashboard is used
+
+https://www.creative-tim.com/product/material-dashboard
+
+
+
+add this other files to the respective folders.
+
+in adminapp create a folder called static and inside it just copy asset folder to it
