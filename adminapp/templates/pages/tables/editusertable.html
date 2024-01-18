@@ -1,0 +1,84 @@
+{% extends 'head/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3"><i class='fas fa-user-edit'> </i> Edit User Profile</h6>
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2">
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-6">
+                  <div class="docorat">
+                    <ul class="uldecorat">
+                      <li class="decorli"><label for="name">Name</label>
+                      <input class="designnot" type="text" name="name" id="name" placeholder="name" value="{{editprofile.webuser.first_name}}" required />
+                      <label class="withinli" for="username">User name</label>
+                      <input class="designnot" type="text" name="username" id="username" placeholder="username" value="{{editprofile.webuser.username}}" required/></li>
+                      <li class="decorli"><label for="email">Email</label>
+                      <input class="designnot" type="email" name="email" id="email" placeholder="email" value="{{editprofile.webuser.email}}" required />
+                      <label class="withinli" for="phone">Phone No</label>
+                      <input class="designnot" type="text" name="phone" id="phone" placeholder="Phone.." value="{{editprofile.phonefield}}"/></li>
+                      <li class="decorliloc"><label for="location">Location</label>
+                      <input class="designnot" type="text" name="location" id="location" placeholder="location" value="{{editprofile.location}}" />
+                      <li class="decorli"><label for="linkedin">LinkedIn Url</label>
+                      <input class="designurl" type="text" name="linkedin" id="linkedin" placeholder="linkedin url" value="{{editprofile.linkedin}}" /></li>
+                      <li class="decorli"><label for="quora">Quora url</label>
+                      <input class="designurl2" type="text" name="quora" id="quora" placeholder="quora url" value="{{editprofile.quora}}"  /></li>
+                      <li class="decorli"><label for="reddit">Reddit url</label>
+                      <input class="designurl2" type="text" name="reddit" id="reddit" placeholder="reddit url" value="{{editprofile.reddit}}" /></li>
+                      <li class="decorli"><label for="facebook">Facebook url</label>
+                      <input class="designurl" type="text" name="facebook" id="facebook" placeholder="facebook url" value="{{editprofile.facebook}}"  /></li>
+                      <li class="decorli"><label for="twitter">Twitter url</label>
+                      <input class="designurl2" type="text" name="twitter" id="twitter" placeholder="twitter url" value="{{editprofile.twitter}}"  /></li>
+                      <li class="decorli"><label for="instagram">Instagram url</label>
+                      <input class="designurl" type="text" name="instagram" id="instagram" placeholder="instagram url" value="{{editprofile.instagram}}" /></li>
+                      <li class="decorli"><label for="shortbio">Short Bio</label>
+                      <input style="margin-left: 10px; width: 377px;" class="designnot3" type="text" name="shortbio" id="shortbio" placeholder="shortbio" value="{{profiledetail.shortbio}}" required /></li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="col-6">
+                  <div class="docorat">
+                    <ul class="uldecorat">
+                      {% if editprofile.profilepic %}
+                      <li class="decorlimage"><img style="width: 150px; border-radius: 15px;" src="{{editprofile.profilepic.url}}" alt="profile-pic">
+                      <label for="profilepic">Profile pic</label>
+                      <input class="liofimage" type="file" name="profilepic" id="profilepic"></li>
+                      {% else %}
+                      <li class="decorli"><label for="profilepic">Profile pic</label>
+                      <input type="file" name="profilepic" id="profilepic"></li>
+                      {% endif %}
+                      {% if editprofile.coverpic %}
+                      <li class="decorlimage"><img style="width: 150px; border-radius: 15px;" src="{{editprofile.coverpic.url}}" alt="profile-pic">
+                      <label for="coverpic">Cover pic</label>
+                      <input class="liofimage" type="file" name="coverpic" id="coverpic"></li>
+                      {% else %}
+                      <li class="decorli"><label for="coverpic">Cover pic</label>
+                      <input type="file" name="coverpic" id="coverpic"></li>
+                      {% endif %}
+                      <li class="decorli">{{form.media}}
+                        {{form|safe}}</li>
+                    </ul>
+                  </div>
+                </div>
+                <div style="text-align: center; padding: 30px;" class="butstyle">
+                  <button style="border-radius: 15px; padding-left: 10px; padding-right: 10px;" type="submit">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+{% endblock content %}

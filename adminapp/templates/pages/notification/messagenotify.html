@@ -1,0 +1,42 @@
+{% extends 'head/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3"><i class='fas fa-bell'> </i> Notification page</h6>
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2">
+            <form method="post">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-12">
+                  <div class="docorat">
+                    <div class="container-fluid">
+                        <input type="hidden" name="mark_unread">
+                        <button style="float: right; margin-right: 30px; background-color: transparent; border: none; color: #154f97; font-weight: 500;">Unread</button><p style="float: right; font-weight: 400;">Mark as</p>
+                    </div>
+                    <ul class="uldecorat" style="list-style-type: none;">
+                        <li> <img style="width: 80px; border-radius: 50px; margin-left: 20px; margin-right: 20px; margin-top: 30px;" src="{{messageget.fromuser.profilepic.url}}" alt=""><span style="margin-top: 20px;">{{messageget.fromuser}}</span></li>
+                        <li><span style="margin-left: 120px;">{{messageget.created_at}}</span></li>
+
+                        <div class="container">
+                            <p style="margin-top: 40px;">{{messageget.detaildesc}}</p>
+                        </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+{% endblock content %}

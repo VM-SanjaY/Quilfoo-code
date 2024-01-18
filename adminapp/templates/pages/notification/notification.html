@@ -1,0 +1,54 @@
+{% extends 'head/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3"><i class='fas fa-bell'> </i> Notifiactions {% if unreadcount == 0 or unreadcount == 1 %}({{unreadcount}} unread Message) {%else%}({{unreadcount}} unread Messages){%endif%}</h6>
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">               
+                <tbody>
+                  {% for noti in notify %}
+                  <tr>
+                    {% if noti.is_read == False %}
+                        <td>
+                            <a href="{% url 'adminnotifyMessagepage' noti.id %}"><div class="container" style="display: flex;justify-content:flex-start">
+                                
+                                <div style="margin-left: 50px;">
+                                    <img src="{{noti.fromuser.profilepic.url}}" alt="Avatar" style="margin-left: 8px; width:50px; border-radius: 50px;">
+                                    <p style="color: rgb(37, 36, 36); font-size: larger; font-weight: 500;">{{noti.fromuser}}</p>
+                                </div>
+                                <p style="margin-left: 50px; margin-top: 10px; color: rgb(37, 36, 36); font-size: larger; font-weight: 500;">{{noti.title}}</p>
+                                <p style="margin-left: 60px; margin-top: 10px; color: rgb(37, 36, 36); font-size: larger; font-weight: 500;">{{noti.created_at}}</p>
+                            </div></a>
+                        </td>
+                    {% else %}
+                        <td>
+                            <a href="{% url 'adminnotifyMessagepage' noti.id %}"><div class="container" style="display: flex;justify-content:flex-start">
+                                <div style="margin-left: 50px;">
+                                    <img src="{{noti.fromuser.profilepic.url}}" alt="Avatar" style="width:50px; border-radius: 50px;">
+                                    <p>{{noti.fromuser}}</p>
+                                </div>
+                                <p style="margin-left: 50px; margin-top: 10px;">{{noti.title}}</p>
+                                <p style="margin-left: 60px; margin-top: 10px;">{{noti.created_at}}</p>
+                            </div></a>
+                        </td>
+                    {% endif %}
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}

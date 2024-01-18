@@ -1,0 +1,53 @@
+{% extends 'head/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3">Category Topics</h6>
+            </div>
+            <a href="{% url 'addcategory' %}"><button style="background-color: transparent; border: none; float: right; margin-top: 15px; color: #898e99; font-size: small;"><i class="fa fa-plus" aria-hidden="true"></i> Add New Topic</button></a>
+          </div>
+          <div class="card-body px-0 pb-2" style="padding: 0.5rem;">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="text-align: center;" >Topic</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="text-align: center;">Images</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="text-align: center;">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for category in categorylist %}
+                  <tr>
+                    <td style="text-align: center;">
+                      <span class="text-xs font-weight-bold">{{category.topic}}</span>
+                    </td>
+                    {% if category.image %}
+                      <td style="text-align: center;">
+                        <img style="width: 130px; height: 80px; border-radius: 20px;" src="{{category.image.url}}" alt="dtfh">
+                      </td>
+                    {% else %}
+                      <td style="text-align: center;">
+                        <span class="text-xs font-weight-bold">No image</span>
+                      </td>
+                    {% endif %}
+                    <td style="text-align: center;">
+                      <a href="{% url 'editcategory' category.id %}" style="margin-right: 15px;"><button style="background-color: transparent; font-weight: 500; border: none; color:black" type="button">Edit/<span style="color: rgb(194, 130, 10);">Delete</span></button></a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}

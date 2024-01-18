@@ -1,0 +1,15 @@
+{% extends 'head/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.media}}
+        {{form.description|safe}}
+        <div style="text-align: center;">
+            <button style="border-radius: 20px; margin-left: 10px; margin-right: 10px;" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

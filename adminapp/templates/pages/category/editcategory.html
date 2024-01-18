@@ -1,0 +1,86 @@
+{% extends 'head/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3"><i class='fas fa-edit'> </i> Edit Topic</h6>
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2">
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row">               
+                <div class="col-12">
+                  <button style="background-color: transparent; border: none; float: right; margin-right: 80px;  margin-top: 15px; color: #898e99; font-size: small;" onclick="openForm()"><i class="fa fa-trash" aria-hidden="true"></i> Delete This Data</button> 
+                  <div class="docorat">
+                    <ul class="uldecorat">
+                      <li class="decorli" style="margin-left: 45px;"><label for="name">Name</label>
+                        <input class="designnot" style="margin-left: 59px; width: 400px;" type="text" name="name" id="name" placeholder="name" value="{{categorydata.topic}}" required /></li>
+                        {% if categorydata.image %}
+                          <li class="decorli" style="margin-left: 40px; margin-top: 20px;"><label class="withinli" for="Currentimage">Current Image</label>   
+                          <img style="margin-left: 30px; width: 250px; border-radius: 25px; margin-top: 20px;" src="{{categorydata.image.url}}" alt="no pic" id="Currentimage"></li>
+                          <li class="decorli" style="margin-left: 40px; margin-top: 40px;"><label class="withinli" for="topicimage">Image</label>
+                          <input class="designnot" style="margin-left: 47px;" type="file" name="topicimage" accept="image/*" id="imgInp">
+                          <img id="blah" src="#" alt="your image" style="width: 400px; border-radius: 20px;" /></li>
+                        {% else %}
+                          <li class="decorli" style="margin-left: 40px; margin-top: 50px;"><label class="withinli" for="topicimage">Image</label>
+                          <input class="designnot" style="margin-left: 47px;" type="file" name="topicimage" accept="image/*" id="imgInp">
+                          <img id="blah" src="#" alt="your image" style="width: 400px; border-radius: 20px;" /></li>
+                        
+                        {% endif %}
+                    </ul>
+                  </div>
+                </div>
+                <div style="text-align: center; padding: 30px;" class="butstyle">
+                  <button style="border-radius: 15px; padding-left: 10px; padding-right: 10px;" type="submit">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="loginPopup">
+    <div class="formPopup" id="popupForm">
+        <form class="formContainer" method="post">
+            {% csrf_token %}
+            <button type="button" class="closedesign" style="float: right;" onclick="closeForm()">X</button>
+            <h2 style="margin-top: 60px; margin-bottom: 50px;" class="h2dis">Are you sure you want to delete it !</h2>
+            <div class="disname" style="margin-bottom: 30px;">
+                <li><label class="stylename" for="deletedata" style="margin-right: 15px;">
+                    <strong>Type Yes to Delete </strong>
+                </label>
+                <input type="text" id="deletedata" name="deletedata" required/></li>
+            </div>
+            <button type="submit" class="btn">Submit</button> 
+        </form>
+    </div>
+</div>
+
+<script>
+    function openForm() {
+      event.preventDefault() 
+      document.getElementById("popupForm").style.display = "block";
+    }
+    function closeForm() {
+      document.getElementById("popupForm").style.display = "none";
+    }
+</script>
+
+<script>
+    imgInp.onchange = evt => {
+      const [file] = imgInp.files
+      if (file) {
+        blah.src = URL.createObjectURL(file)
+      }
+    }
+</script>
+
+{% endblock content %}

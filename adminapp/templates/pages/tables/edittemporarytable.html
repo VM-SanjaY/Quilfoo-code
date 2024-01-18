@@ -1,0 +1,47 @@
+{% extends 'head/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3"><i class='fas fa-user-edit'> </i> Edit Temporary User Table</h6>
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2">
+            <form method="post">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-12">
+                  <div class="docorat">
+                    <ul class="uldecorat">
+                      <li class="decorli" style="margin-left: 45px;"><label for="name">Name</label>
+                      <input class="designnot" style="margin-left: 59px; width: 400px;" type="text" name="name" id="name" placeholder="name" value="{{edittempuser.name}}" required /></li>
+                      <li class="decorli" style="margin-left: 45px;"><label class="withinli" for="username">User name</label>
+                      <input class="designnot" style="margin-left: 25px; width: 400px;" type="text" name="username" id="username" placeholder="username" value="{{edittempuser.username}}" required/></li>
+                      <li class="decorli" style="margin-left: 45px;"><label for="email">Email</label>
+                      <input class="designnot" style="margin-left: 65px; width: 400px;" type="email" name="email" id="email" placeholder="email" value="{{edittempuser.email}}" required /></li>
+                      <li class="decorli" style="margin-left: 45px;"><label for="password">Password</label>
+                      <input class="designnot" style="margin-left: 40px; width: 400px;" type="text" name="password" id="password" placeholder="password" value="{{edittempuser.password}}" required /></li>
+                      <li class="decorli" style="margin-left: 45px;"><label class="withinli" for="phone">Phone No</label>
+                      <input class="designnot" style="margin-left: 36px; width: 400px;" type="text" name="phone" id="phone" placeholder="Phone.." value="{{edittempuser.phonefield}}"/></li>
+                      <li class="decorli" style="margin-left: 45px;"><label class="withinli" for="otp">OTP</label>
+                      <input class="designnot" style="margin-left: 70px; width: 400px;" type="tel" name="otp" id="otp" placeholder="otp.." pattern="[0-9]{4}" value="{{edittempuser.otp}}"/></li>
+                    </ul>
+                  </div>
+                </div>
+                <div style="text-align: center; padding: 30px;" class="butstyle">
+                  <button style="border-radius: 15px; padding-left: 10px; padding-right: 10px;" type="submit">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+{% endblock content %}

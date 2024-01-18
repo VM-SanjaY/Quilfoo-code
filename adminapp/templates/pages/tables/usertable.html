@@ -1,0 +1,77 @@
+{% extends 'head/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3">User Table</h6>
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email Id</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Username</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Profile Pic</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Phone no</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Location</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Instagram ID</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Facebook ID</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for customer in customerdetail %}
+                  <tr>
+                    <td>
+                      <span class="text-xs font-weight-bold" style="margin-left: 18px;">{{customer.webuser.first_name}}</span>
+                    </td>
+                    <td>
+                      <span class="text-xs font-weight-bold" style="margin-left: 10px;">{{customer.webuser.email}}</span>
+                    </td>
+                    <td>
+                      <span class="text-xs font-weight-bold" style="margin-left: 10px;">{{customer.webuser.username}}</span>
+                    </td>
+                    {% if customer.profilepic %}
+                    <td>
+                      <img style="width: 100px; height: 80px; margin-left: 6px;" src="{{customer.profilepic.url}}" alt="nopic">
+                    </td>
+                    {% else %}
+                    <td>
+                      <span class="text-xs font-weight-bold margin-left: 10px;">No Pic</span>
+                    </td>
+                    {% endif %}
+                    <td>
+                      <span class="text-xs font-weight-bold" style="margin-left: 10px;">{{customer.phonefield}}</span>
+                    </td>
+                    <td>
+                      <span class="text-xs font-weight-bold" style="margin-left: 10px;">{{customer.location}}</span>
+                    </td>
+                    <td>
+                      <span class="text-xs font-weight-bold" style="margin-left: 10px;">{% if customer.instagram == 'None' %}Empty{% else %}<a href="{{customer.instagram}}" target="blank">{{customer.instagram}}</a>{% endif %}</span>
+                    </td>
+                    <td>
+                      <span class="text-xs font-weight-bold" style="margin-left: 10px;">{% if customer.instagram == 'None' %}Empty{% else %}<a href="{{customer.facebook}}" target="_blank">{{customer.facebook}}</a>{% endif %}</span>
+                    </td>
+                    <td>
+                      <button type="submit" style="border: none; background-color: transparent;"><a href="{% url 'editadminusertable' customer.id %}" style="color: color-mix(in srgb-linear, black 50%, orange 50%);">Edit</a></button>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock content %}
