@@ -1,0 +1,140 @@
+[
+  { "model": "auth.user",
+      "pk": 2,
+      "fields": {
+          "username": "sudharsan",
+          "email":"sudharshan@yopmail.com",
+          "first_name":"sudharsan",
+          "is_superuser":0,
+          "is_staff":0,
+          "password": "pbkdf2_sha256$600000$qxFpyOSVsrGpjC08ycEjih$ei/TeYDYTW5OOwNH3bbx/vjFVxTWI+MfqWKD3m3D4TI=",
+          "date_joined":"2023-08-29 06:01:03.701017"
+      }
+  },
+  { "model": "auth.user",
+      "pk": 3,
+      "fields": {
+          "username": "Nithesh",
+          "email":"nithesh@yopmail.com",
+          "first_name":"Nithesh",
+          "is_superuser":0,
+          "is_staff":0,
+          "password": "pbkdf2_sha256$600000$qxFpyOSVsrGpjC08ycEjih$ei/TeYDYTW5OOwNH3bbx/vjFVxTWI+MfqWKD3m3D4TI=",
+          "date_joined":"2023-08-29 06:01:03.701017"
+      }
+  },
+  { "model": "auth.user",
+      "pk": 4,
+      "fields": {
+          "username": "Akkeal",
+          "email":"akkeal@yopmail.com",
+          "first_name":"Akkeal",
+          "is_superuser":0,
+          "is_staff":0,
+          "password": "pbkdf2_sha256$600000$qxFpyOSVsrGpjC08ycEjih$ei/TeYDYTW5OOwNH3bbx/vjFVxTWI+MfqWKD3m3D4TI=",
+          "date_joined":"2023-08-29 06:01:03.701017"
+      }
+  },
+  { "model": "auth.user",
+      "pk": 5,
+      "fields": {
+          "username": "Sanjay",
+          "email":"sanjay@yopmail.com",
+          "first_name":"SanjaY",
+          "is_superuser":0,
+          "is_staff":0,
+          "password": "pbkdf2_sha256$600000$qxFpyOSVsrGpjC08ycEjih$ei/TeYDYTW5OOwNH3bbx/vjFVxTWI+MfqWKD3m3D4TI=",
+          "date_joined":"2023-08-29 06:01:03.701017"
+      }
+  },
+  { "model": "auth.user",
+      "pk": 6,
+      "fields": {
+          "username": "Vimal",
+          "email":"vimal@yopmail.com",
+          "first_name":"Vimal",
+          "is_superuser":0,
+          "is_staff":0,
+          "password": "pbkdf2_sha256$600000$qxFpyOSVsrGpjC08ycEjih$ei/TeYDYTW5OOwNH3bbx/vjFVxTWI+MfqWKD3m3D4TI=",
+          "date_joined":"2023-08-29 06:01:03.701017"
+      }
+  },
+  { "model": "auth.user",
+      "pk": 7,
+      "fields": {
+          "username": "Thamarai",
+          "email":"thamarai@yopmail.com",
+          "first_name":"Thamarai",
+          "is_superuser":0,
+          "is_staff":0,
+          "password": "pbkdf2_sha256$600000$qxFpyOSVsrGpjC08ycEjih$ei/TeYDYTW5OOwNH3bbx/vjFVxTWI+MfqWKD3m3D4TI=",
+          "date_joined":"2023-08-29 06:01:03.701017"
+      }
+  },
+  {
+      "model": "loginapp.Websiteuser",
+    "id": 2,
+    "fields": {
+      "webuser": 2,
+      "profilepic": "userdetail/profilepic/gokussj.png",
+      "coverpic": "userdetail/coverpic/coverphoto.jpg",
+      "created_at": "2023-08-29 06:01:03.701017",
+      "updated_at": "2023-08-29 06:01:03.701017"
+    }
+  },
+  {
+      "model": "loginapp.Websiteuser",
+      "id": 3,
+      "fields": {
+        "webuser": 3,
+        "profilepic": "userdetail/profilepic/gokussj.png",
+        "coverpic": "userdetail/coverpic/coverphoto.jpg",
+        "created_at": "2023-08-29 06:01:03.701017",
+        "updated_at": "2023-08-29 06:01:03.701017"
+      } 
+  },
+  {
+    "model": "loginapp.Websiteuser",
+    "id": 4,
+    "fields": {
+      "webuser": 4,
+      "profilepic": "userdetail/profilepic/gokussj.png",
+      "coverpic": "userdetail/coverpic/coverphoto.jpg",
+      "created_at": "2023-08-29 06:01:03.701017",
+      "updated_at": "2023-08-29 06:01:03.701017"
+    }
+  },
+  {
+      "model": "loginapp.Websiteuser",
+      "id": 5,
+      "fields": {
+        "webuser": 5,
+        "profilepic": "userdetail/profilepic/gokussj.png",
+        "coverpic": "userdetail/coverpic/coverphoto.jpg",
+        "created_at": "2023-08-29 06:01:03.701017",
+        "updated_at": "2023-08-29 06:01:03.701017"
+      } 
+  },
+  {
+    "model": "loginapp.Websiteuser",
+    "id": 6,
+    "fields": {
+      "webuser": 6,
+      "profilepic": "userdetail/profilepic/gokussj.png",
+      "coverpic": "userdetail/coverpic/coverphoto.jpg",
+      "created_at": "2023-08-29 06:01:03.701017",
+      "updated_at": "2023-08-29 06:01:03.701017"
+    }
+  },
+  {
+      "model": "loginapp.Websiteuser",
+      "id": 7,
+      "fields": {
+        "webuser": 7,
+        "profilepic": "userdetail/profilepic/gokussj.png",
+        "coverpic": "userdetail/coverpic/coverphoto.jpg",
+        "created_at": "2023-08-29 06:01:03.701017",
+        "updated_at": "2023-08-29 06:01:03.701017"
+      } 
+  }
+]
