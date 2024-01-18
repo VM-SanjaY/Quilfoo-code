@@ -1,0 +1,155 @@
+{% load static %}
+<header class="sticky-head">
+    <div class="container header_sec">
+      <div class="row nav_innersec">
+        <div class="col-lg-2 col-sm-2">
+          <img src="{% static 'img/logo.png' %}">
+        </div>
+        <div class="col-lg-4 col-sm-4 menu_sec">
+          <div class="hamburger"><img src="{% static 'img/menu-bar.webp' %}" alt=""></div>
+          <ul class="nav_list">
+            <li><a class="active" href="#"><svg class="menu-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M15.0502 3.05172L15.05 3.05159C14.7686 2.77011 14.3984 2.6167 14.0007 2.6167C13.6028 2.6167 13.2325 2.77003 12.951 3.05153L12.4217 2.52218L12.951 3.05153L3.05853 12.9428M15.0502 3.05172L3.05853 12.9428M15.0502 3.05172L24.95 12.9502L24.95 12.9502L24.9506 12.9508L24.9511 12.9513C24.9513 12.9515 24.9514 12.9516 24.9515 12.9517C25.5283 13.5301 25.5279 14.4715 24.9507 15.0494C24.9507 15.0494 24.9506 15.0495 24.9506 15.0495C24.9505 15.0495 24.9505 15.0496 24.9504 15.0496C24.6686 15.3311 24.2984 15.4843 23.9009 15.4843H23.5351H22.7851V16.2343V23.519C22.7851 24.5462 21.948 25.3834 20.9201 25.3834H17.0859V19.7112C17.0859 18.6391 16.2149 17.7684 15.1429 17.7684H12.8584C11.7864 17.7684 10.9154 18.6391 10.9154 19.7112V25.3834H7.08129C6.05334 25.3834 5.21629 24.5462 5.21629 23.519V16.2343V15.4843H4.46629H4.07348L15.0502 3.05172ZM3.05853 12.9428L3.05639 12.945L3.05824 12.9431L3.05853 12.9428ZM3.04784 12.9537L2.51601 12.4249L3.04636 12.9552L3.04784 12.9537Z" stroke="#464646"
+                    stroke-width="1.5" />
+                  
+                </svg></a></li>
+            <li><a href="#"><svg class="menu-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="14" cy="14" r="12.25" stroke="#464646" stroke-width="1.5" />
+                  <path
+                    d="M14 15.8667V15.5183C14 14.39 14.7085 13.7926 15.4169 13.3114C16.1085 12.8469 16.8 12.2495 16.8 11.1544C16.8 9.62791 15.5518 8.4 14 8.4C12.4482 8.4 11.2 9.62791 11.2 11.1544"
+                    stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M13.9913 19.6001H14.0081" stroke="#464646" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></a></li>
+            <li><a href="#"><svg class="menu-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <mask id="mask0_489_225" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="28"
+                    height="28">
+                    <path d="M0 3.8147e-06H28V28H0V3.8147e-06Z" fill="white" />
+                  </mask>
+                  <g mask="url(#mask0_489_225)">
+                    <path
+                      d="M25.9393 21.0498L26.5868 24.9391L22.6974 24.2916C21.3538 25.0802 19.7897 25.5325 18.119 25.5325C14.5971 25.5325 11.5445 23.5233 10.0449 20.5882C14.9745 20.5012 18.9431 16.4784 18.9431 11.5287C18.9431 10.0466 18.5871 8.64718 17.956 7.41179C18.0102 7.4107 18.0643 7.41015 18.119 7.41015C23.1234 7.41015 27.1802 11.4669 27.1802 16.4713C27.1802 18.1415 26.7279 19.7061 25.9393 21.0498Z"
+                      stroke="#464646" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path
+                      d="M17.7344 15.1305C17.7344 13.9907 18.6584 13.0668 19.7981 13.0668C20.9379 13.0668 21.8619 13.9907 21.8619 15.1305C21.8619 16.2703 20.9379 17.1942 19.7981 17.1942V19.6115"
+                      stroke="#464646" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path
+                      d="M19.7985 23.1663C20.2276 23.1663 20.6387 22.789 20.6189 22.346C20.5989 21.9015 20.2584 21.5257 19.7985 21.5257C19.3695 21.5257 18.9584 21.9029 18.9782 22.346C18.9981 22.7904 19.3387 23.1663 19.7985 23.1663Z"
+                      fill="#464646" />
+                    <path
+                      d="M18.9427 11.5287C18.9427 16.4784 14.974 20.5013 10.0445 20.5882C9.99031 20.5893 9.93617 20.5899 9.88148 20.5899C8.21078 20.5899 6.64672 20.1376 5.30305 19.349L1.41367 19.9965L2.06117 16.1071C1.27258 14.7634 0.820312 13.1988 0.820312 11.5287C0.820312 6.52423 4.87703 2.46751 9.88148 2.46751C13.4034 2.46751 16.456 4.47673 17.9555 7.41181C18.5866 8.6472 18.9427 10.0466 18.9427 11.5287Z"
+                      fill="white" stroke="#464646" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path d="M13.0665 12.1334H6.5332" stroke="#464646" stroke-width="1.5" stroke-miterlimit="10"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M13.0665 15.8667H6.5332" stroke="#464646" stroke-width="1.5" stroke-miterlimit="10"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M13.0665 8.40002H6.5332" stroke="#464646" stroke-width="1.5" stroke-miterlimit="10"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                  </g>
+                </svg></a></li>
+            <li><a href="#"><svg class="menu-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g id="vuesax/linear/profile-2user">
+                    <g id="profile-2user">
+                      <path id="Vector"
+                        d="M10.6867 12.6817C10.57 12.67 10.43 12.67 10.3017 12.6817C7.52501 12.5883 5.32001 10.3133 5.32001 7.51334C5.32001 4.655 7.63001 2.33334 10.5 2.33334C13.3583 2.33334 15.68 4.655 15.68 7.51334C15.6683 10.3133 13.4633 12.5883 10.6867 12.6817Z"
+                        stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path id="Vector_2"
+                        d="M19.145 4.66666C21.4083 4.66666 23.2283 6.49833 23.2283 8.75C23.2283 10.955 21.4783 12.7517 19.2967 12.8333C19.2033 12.8217 19.0983 12.8217 18.9933 12.8333"
+                        stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path id="Vector_3"
+                        d="M4.85334 16.9867C2.03001 18.8767 2.03001 21.9567 4.85334 23.835C8.06167 25.9817 13.3233 25.9817 16.5317 23.835C19.355 21.945 19.355 18.865 16.5317 16.9867C13.335 14.8517 8.07334 14.8517 4.85334 16.9867Z"
+                        stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path id="Vector_4"
+                        d="M21.3967 23.3333C22.2367 23.1583 23.03 22.82 23.6833 22.3183C25.5033 20.9533 25.5033 18.7017 23.6833 17.3367C23.0417 16.8467 22.26 16.52 21.4317 16.3333"
+                        stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                  </g>
+                </svg></a></li>
+            <li><a href="#"><svg class="menu-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g id="vuesax/linear/notification-bing">
+                    <g id="notification-bing">
+                      <path id="Vector"
+                        d="M14.0233 2.33334C9.73 2.33334 6.25334 5.81 6.25334 10.1033V12.5533C6.25334 13.3467 5.92667 14.5367 5.51834 15.2133L4.03667 17.6867C3.12667 19.215 3.75667 20.9183 5.43667 21.4783C11.0133 23.3333 17.045 23.3333 22.6217 21.4783C24.1967 20.9533 24.8733 19.11 24.0217 17.6867L22.54 15.2133C22.1317 14.5367 21.805 13.335 21.805 12.5533V10.1033C21.7933 5.83334 18.2933 2.33334 14.0233 2.33334Z"
+                        stroke="#464646" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" />
+                      <path id="Vector_2"
+                        d="M17.885 21.9567C17.885 24.0917 16.135 25.8417 14 25.8417C12.9383 25.8417 11.9583 25.3983 11.2583 24.6983C10.5583 23.9983 10.115 23.0183 10.115 21.9567"
+                        stroke="#464646" stroke-width="1.5" stroke-miterlimit="10" />
+                    </g>
+                  </g>
+                </svg></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-sm-3 form-group has-search">
+          <span class="fa fa-search form-control-feedback"></span>
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <div class="col-lg-3 col-sm-3 login">
+          <a class="head_btn" href="{% url 'addPost' %}" style='text-decoration: NONE; padding-top: 10px;'>Ask / Post</a>
+          {% if user.is_authenticated %}
+          <img src="{{ user_details.profilepic.url }}" class="user-profile" width=50 height=45 >
+            <!--================= popup section ====================-->
+            <ul class="popupsec popupmenu list-unstyled">
+              <li><a href="{% url 'userProfile' %}"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M10.1334 9.05832C10.05 9.04999 9.95005 9.04999 9.85838 9.05832C7.87505 8.99166 6.30005 7.36666 6.30005 5.36666C6.30005 3.32499 7.95005 1.66666 10 1.66666C12.0417 1.66666 13.7 3.32499 13.7 5.36666C13.6917 7.36666 12.1167 8.99166 10.1334 9.05832Z"
+                    stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M5.96672 12.1333C3.95006 13.4833 3.95006 15.6833 5.96672 17.025C8.25839 18.5583 12.0167 18.5583 14.3084 17.025C16.3251 15.675 16.3251 13.475 14.3084 12.1333C12.0251 10.6083 8.26672 10.6083 5.96672 12.1333Z"
+                    stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <defs>
+                      <linearGradient id="paint0_linear_663_1802" x1="1.40052" y1="14.9334" x2="26.1339" y2="15.4" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#7C21AB"/>
+                        <stop offset="1" stop-color="#F603C9"/>
+                      </linearGradient>
+                    </defs>
+                </svg><span class="popup-list"> My profile</span></a></li>
+              <li><a href=""><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.4417 2.92501L12.9084 5.85835C13.1084 6.26668 13.6417 6.65835 14.0917 6.73335L16.75 7.17501C18.45 7.45835 18.85 8.69168 17.625 9.90835L15.5584 11.975C15.2084 12.325 15.0167 13 15.125 13.4833L15.7167 16.0417C16.1834 18.0667 15.1084 18.85 13.3167 17.7917L10.825 16.3167C10.375 16.05 9.63338 16.05 9.17505 16.3167L6.68338 17.7917C4.90005 18.85 3.81671 18.0583 4.28338 16.0417L4.87505 13.4833C4.98338 13 4.79171 12.325 4.44171 11.975L2.37505 9.90835C1.15838 8.69168 1.55005 7.45835 3.25005 7.17501L5.90838 6.73335C6.35005 6.65835 6.88338 6.26668 7.08338 5.85835L8.55005 2.92501C9.35005 1.33335 10.65 1.33335 11.4417 2.92501Z"
+                    stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg><span class="popup-list">Favourites</span></a></li>
+              <li><a href=""><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M3.05835 2.08334V12.0583C3.05835 12.875 3.44168 13.65 4.10002 14.1417L8.44168 17.3917C9.36668 18.0833 10.6417 18.0833 11.5667 17.3917L15.9083 14.1417C16.5667 13.65 16.95 12.875 16.95 12.0583V2.08334H3.05835Z"
+                    stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" />
+                  <path d="M1.66663 2.08334H18.3333" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" />
+                  <path d="M6.66663 6.66666H13.3333" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M6.66663 10.8333H13.3333" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg><span class="popup-list">Terms & Conditions</span></a></li>
+              <li><a href="#"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4.55004 15.4083V12.975C4.55004 12.1667 5.18337 11.4417 6.08337 11.4417C6.89171 11.4417 7.61671 12.075 7.61671 12.975V15.3167C7.61671 16.9417 6.26671 18.2917 4.64171 18.2917C3.01671 18.2917 1.66671 16.9333 1.66671 15.3167V10.1833C1.57504 5.50001 5.27504 1.70834 9.95837 1.70834C14.6417 1.70834 18.3334 5.50001 18.3334 10.0917V15.225C18.3334 16.85 16.9834 18.2 15.3584 18.2C13.7334 18.2 12.3834 16.85 12.3834 15.225V12.8833C12.3834 12.075 13.0167 11.35 13.9167 11.35C14.725 11.35 15.45 11.9833 15.45 12.8833V15.4083"
+                    stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg><span class="popup-list">Help</span></a></li>
+              <li><a href="{% url 'userLogoutpage' %}"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7.41675 6.30001C7.67508 3.30001 9.21675 2.07501 12.5917 2.07501H12.7001C16.4251 2.07501 17.9167 3.56668 17.9167 7.29168V12.725C17.9167 16.45 16.4251 17.9417 12.7001 17.9417H12.5917C9.24175 17.9417 7.70008 16.7333 7.42508 13.7833"
+                    stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M1.66663 10H12.4" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M10.5417 7.20831L13.3334 9.99998L10.5417 12.7916" stroke="#292D32" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg><span class="popup-list">Logout</span></a></li>
+            </ul>
+            <!-- end popup -->
+          </div>
+        {% else %}
+          <div class="col-lg-3 col-sm-3 login">
+            <a class="head_btn"  href="{% url 'userLoginpage' %}" style='text-decoration: NONE; padding-top: 10px;'>Login</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </header>

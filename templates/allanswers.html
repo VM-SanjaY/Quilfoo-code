@@ -1,0 +1,11 @@
+{% for allans in allanswer %}
+    {{allans.questionform.ask}}
+    <br>
+    <br>
+    {{allans.description}}
+    <br>
+    <br>
+    <a href="{% url 'detailofAnswer' allans.id %}"><button type="button">check</button></a>
+
+    <hr>
+{% endfor %}

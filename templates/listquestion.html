@@ -1,0 +1,10 @@
+{% load static %}
+
+{% for question in listquestion %}
+    {{question.questionby.webuser.username}}
+    <br>
+    {{question.ask}}
+    <a href="{% url 'answerpage' question.id %}"><button type="submit">Answer</button></a>
+    <br>
+    <hr>
+{% endfor %}

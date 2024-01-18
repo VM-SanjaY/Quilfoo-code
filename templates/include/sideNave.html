@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 cat-section">
+      {% if user.is_authenticated %}
+      <h2 class="cat-head">Top Category</h2>
+      {% for category in categorys.categorys_follower %}
+      <ul class="topcat">
+        <li><img src="{{ category.categoryid.image.url}}" width=50 height=40>
+          <p>{{category.categoryid.topic}}</p>
+        </li>
+      {% endfor %}
+      <button class="cat-btn">View More</button>
+      <hr>
+      {% endif %}
+      <h2 class="cat-head">Most Viewed</h2>
+      {% for category in categorys.category %}
+      <ul class="topcat">
+        <li><img src="{{ category.image.url}}" width=50>
+          <p>{{category.topic}}</p>
+        </li>
+      </ul>
+      {% endfor %}
+      <button class="cat-btn">View More</button>
+    </div>

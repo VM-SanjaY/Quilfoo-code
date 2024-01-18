@@ -1,0 +1,37 @@
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="docorat">
+                        <ul class="uldecorat">
+                            <li class="decorli" style="margin-left: 45px;"><label for="name">Circle Name</label>
+                            <input class="designnot" style="margin-left: 59px; width: 400px;" type="text" name="name" id="name" placeholder="G- name" required /></li>
+                            <li class="decorli" style="margin-left: 40px; margin-top: 50px;"><label class="withinli" for="topicimage">Image</label>
+                            <input class="designnot" style="margin-left: 47px;" type="file" name="topicimage" accept="image/*" id="imgInp">
+                            <img id="blah" src="#" alt="your image" style="width: 150px; border-radius: 20px;" /></li>
+                            <li> <label for="">Description</label>
+                                {{form.media}}
+                                <p>{{form.description}}</p></li>
+                        </ul>
+                        </div>
+                    </div>
+                    <div style="text-align: center; padding: 30px;" class="butstyle">
+                        <button style="border-radius: 15px; padding-left: 10px; padding-right: 10px;" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>           
+        </div>
+    </div>
+</div>
+
+<script>
+    imgInp.onchange = evt => {
+      const [file] = imgInp.files
+      if (file) {
+        blah.src = URL.createObjectURL(file)
+      }
+    }
+</script>

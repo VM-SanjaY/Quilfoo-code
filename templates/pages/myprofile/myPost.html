@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Post</title>
+</head>
+<body>    
+    {% for user_post_data in user_posts %}
+        {% for user_post in user_post_data.postimage_set.all %}
+        <div style="border-bottom: 2px solid;" >
+            {% if user_post.file_type == 1 %}
+                <Video width="500px" height="200px" controls>
+                    <Source src="{{ user_post.image.url }}" type="video/mp4">
+                </Video>
+            {% else %}
+                <img src="{{ user_post.image.url }}" alt="sd">
+            {% endif %}
+        {% if user_post.id in counts%}
+            <a href="{% url 'postEdit' user_post.userpostid.id %}">Edit</a><br>
+            <a href="{% url 'postDelete' user_post.userpostid.id %}">Delete</a>
+        {% endif %}
+        
+        {% endfor %}
+        <p>{{user_post_data.description|safe}}</p>
+        <a href="{% url 'postEdit' user_post_data.id %}">Edit</a><br>
+        <a href="{% url 'postDelete' user_post_data.id %}">Delete</a>
+    </div>
+    {% endfor %}
+    
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post</title>
+</head>
+<body>
+    <a href="{% url 'addPost' %}">Add Post</a><br>
+    <a href="{% url 'userProfile' %}">Profile</a><br>
+    <a href="{% url 'userLogoutpage' %}">Logout</a><br>
+    {% for category in categorys %}
+    <p>{{category.topic}}</p>
+    <img src="{{ category.image.url }}" alt="" width='20%'>
+    {% endfor %}
+    {% for user_post_data in user_posts %}
+        <div class="profile">
+            <img src="{{ user_post_data.user_post.postby.profilepic.url }}" alt="" width="50"style="border-radius: 10px;">
+            <span>{{user_post_data.user_post.postby}}</span>
+            <button class='follow {{ user_post_data.user_post.postby.id }}' data-catid="{{ user_post_data.user_post.postby.id }}">{% if user_post_data.user_post.postby.id  in follows %}Unfollow {% else %} Follow {% endif %}</button>
+        </div>
+        <p>{{user_post_data.user_post.description}}</p>
+        {% for user_post in user_post_data.user_post.postimage_set.all %}
+        <div style="border-bottom: 2px solid;" >
+            {% if user_post.file_type == 1 %}
+                <Video width="500px" height="200px" controls>
+                    <Source src="{{ user_post.image.url }}" type="video/mp4">
+                </Video>
+            {% else %}
+                <img src="{{ user_post.image.url }}" alt="sd">
+            {% endif %}        
+        {% endfor %}
+        <div class="action" style='display: inline-flex;'>
+            <button class="likebutton" data-catid="{{ user_post_data.user_post.id }}">Like <span id='upvote{{user_post_data.user_post.id}}'>{{user_post_data.upvote}}</span></button><br>
+            <button class="unlikebutton" data-catid="{{ user_post_data.user_post.id }}">Unlike <span id='downvote{{user_post_data.user_post.id}}'>{{user_post_data.downvote}}</span></button><br>
+            <a href="{% url 'postComment' user_post_data.user_post.id %}">Comment</a>
+        </div>  
+    </div>
+    {% endfor %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $('.likebutton').click(function(){
+            var catid;
+            catid = $(this).attr("data-catid");
+        $.ajax(
+        {
+            type:"GET",
+            url: "like-post/",
+            data:{
+                     post_id: catid
+            },
+            success: function( data ) 
+            {
+                var upvote ='#upvote'+data.id;
+                var downvote ='#downvote'+data.id;
+                $(upvote).html(data.upvote);
+                $(downvote).html(data.downvote);
+            }
+         })
+    });
+    $('.unlikebutton').click(function(){
+        var catid;
+        catid = $(this).attr("data-catid");
+    $.ajax(
+    {
+        type:"GET",
+        url: "unlike-post/",
+        data:{
+                 post_id: catid
+        },
+        success: function( data ) 
+        {
+            var upvote ='#upvote'+data.id;
+            var downvote ='#downvote'+data.id;
+            $(upvote).html(data.upvote);
+            $(downvote).html(data.downvote);
+    }
+     })
+    });
+    $('.follow').click(function(){
+        var catid;
+        catid=$(this).attr("data-catid")
+        $.ajax(
+    {
+        type:"GET",
+        url: "follow-unfollow/",
+        data:{
+                 post_id: catid
+        },
+        success: function( data ) 
+        {
+            var follow ='.'+data.id;
+            $(follow).html(data.follow);
+    }
+     })   
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit post</title>
+</head>
+<body>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    {% for user_post in user_posts %}
+    <div style="border-bottom: 2px solid;">
+        {% if user_post.file_type == 1 %}
+            <Video width="500px" height="200px" controls>
+                <Source src="{{ user_post.image.url }}" type="video/mp4"  >
+            </Video>
+        {% else %}
+            <img src="{{ user_post.image.url }}" alt="sd">
+        {% endif %}
+        <a href="{% url 'postDelete' user_post.id %}">Delete</a>
+    </div>
+    {% endfor %}  
+    <label for="">Description</label><br>
+    {{form.media}}
+    {{form.description}}
+        {% comment %} <textarea class="" name="description" id="" cols="30" rows="10">{{user_description.description}}</textarea>  {% endcomment %}
+    <label for="">Image</label><br>
+    <input type="file" name="post_file[]" multiple><br>
+    <button type="submit">Next</button> 
+    <a href="{% url 'myPost' %}">Back</a>   
+    </form>
+</body>
+</html>

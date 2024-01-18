@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post</title>
+</head>
+<body>
+    {% if messages %}
+            <div class="messages">
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+                    {{ message }}
+                </div>
+            {% endfor %}
+            </div>
+    {% endif %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="">Description</label><br>
+        {{form.media}}
+        {{form.description}}
+        {% comment %} <textarea class="" name="description" id="" cols="30" rows="10"></textarea> {% endcomment %}
+        <label for="">Image</label><br>
+        <input type="file" name="post_file[]" multiple><br>
+        <button type="submit">Next</button> 
+        <a href="{% url 'userHome' %}">Back</a>   
+    </form>
+</body>
+</html>

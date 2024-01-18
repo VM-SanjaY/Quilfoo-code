@@ -1,0 +1,154 @@
+{% include 'include/header.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-lg-9 col-md-8 blog-section">
+  {% for user_post_data in user_posts %}
+    <div class="blog-cardsec">
+      <div class="blog-innersec">
+        <div class="blog-iconsec">
+          <img src="{{ user_post_data.user_post.postby.profilepic.url }}" width=50 height=45 >
+        </div>
+        <div class="blog-titlesec">
+          <h3 class="name">{{user_post_data.user_post.postby}}<span class="follow">
+            {% if user_details.id != user_post_data.user_post.postby.id %}  
+            <ul >
+                <li class='follow {{ user_post_data.user_post.postby.id }}' data-catid="{{ user_post_data.user_post.postby.id }}" style="cursor: pointer;">{% if user_post_data.user_post.postby.id  in follows %} Following {% else %} Follow {% endif %}</li>
+            </ul>
+              {% endif %}
+            </span></h3>
+          <h4 class="blog-name">{{user_post_data.user_post.postby.shortbio}}<span class="hours">
+              <ul>
+                <li>{{user_post_data.user_post.created_at|timesince}} ago</li>
+              </ul>
+            </span></h4>
+        </div>
+      </div>
+      <p class="blog-des">{{user_post_data.user_post.description|safe}}</p>
+      {% for user_post in user_post_data.user_post.postimage_set.all %}
+        {% if user_post.file_type == 1 %}
+                <Video width="80%"  controls>
+                    <Source src="{{ user_post.image.url }}" type="video/mp4" class="blog-img">
+                </Video>
+            {% else %}
+                <img src="{{ user_post.image.url }}" alt="xxd" class="blog-img"  width="70%">
+            {% endif %}
+      {% endfor %}
+
+      <!-- comment section -->
+      <div class="comment-sec">
+        <ul>
+          <li class="likebutton" data-catid="{{ user_post_data.user_post.id }}" style="cursor: pointer;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.47998 18.35L10.58 20.75C10.98 21.15 11.88 21.35 12.48 21.35H16.28C17.48 21.35 18.78 20.45 19.08 19.25L21.48 11.95C21.98 10.55 21.08 9.35003 19.58 9.35003H15.58C14.98 9.35003 14.48 8.85003 14.58 8.15003L15.08 4.95003C15.28 4.05003 14.68 3.05003 13.78 2.75003C12.98 2.45003 11.98 2.85003 11.58 3.45003L7.47998 9.55003"
+                stroke="#464646" stroke-width="1.5" stroke-miterlimit="10" />
+              <path
+                d="M2.38 18.35V8.55002C2.38 7.15002 2.98 6.65002 4.38 6.65002H5.38C6.78 6.65002 7.38 7.15002 7.38 8.55002V18.35C7.38 19.75 6.78 20.25 5.38 20.25H4.38C2.98 20.25 2.38 19.75 2.38 18.35Z"
+                stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <p class="count" id='upvote{{user_post_data.user_post.id}}' >{{user_post_data.upvote}}</p>
+          </li>
+          <li class="unlikebutton" data-catid="{{ user_post_data.user_post.id }}" style="cursor: pointer;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+              d="M16.5197 5.65002L13.4197 3.25002C13.0197 2.85002 12.1197 2.65002 11.5197 2.65002H7.71973C6.51973 2.65002 5.21973 3.55002 4.91973 4.75002L2.51973 12.05C2.01973 13.45 2.91973 14.65 4.41973 14.65H8.41973C9.01973 14.65 9.51973 15.15 9.41973 15.85L8.91973 19.05C8.71973 19.95 9.31973 20.95 10.2197 21.25C11.0197 21.55 12.0197 21.15 12.4197 20.55L16.5197 14.45"
+              stroke="#464646" stroke-width="1.5" stroke-miterlimit="10" />
+              <path
+              d="M21.62 5.65V15.45C21.62 16.85 21.02 17.35 19.62 17.35H18.62C17.22 17.35 16.62 16.85 16.62 15.45V5.65C16.62 4.25 17.22 3.75 18.62 3.75H19.62C21.02 3.75 21.62 4.25 21.62 5.65Z"
+              stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <p class="count" id='downvote{{user_post_data.user_post.id}}' >{{user_post_data.downvote}}</p>
+          </li>
+          <a herf='#'>
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8.5 19H8C4 19 2 18 2 13V8C2 4 4 2 8 2H16C20 2 22 4 22 8V13C22 17 20 19 16 19H15.5C15.19 19 14.89 19.15 14.7 19.4L13.2 21.4C12.54 22.28 11.46 22.28 10.8 21.4L9.3 19.4C9.14 19.18 8.77 19 8.5 19Z"
+                stroke="#464646" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M15.9965 11H16.0054" stroke="#464646" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M11.9955 11H12.0045" stroke="#464646" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M7.99451 11H8.00349" stroke="#464646" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <p class="count">12k</p>
+          </li>
+        </a>
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.39999 6.31997L15.89 3.48997C19.7 2.21997 21.77 4.29997 20.51 8.10997L17.68 16.6C15.78 22.31 12.66 22.31 10.76 16.6L9.91999 14.08L7.39999 13.24C1.68999 11.34 1.68999 8.22997 7.39999 6.31997Z"
+                stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M10.11 13.65L13.69 10.06" stroke="#464646" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </li>
+        </ul>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+    <!-- next blog -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $('.likebutton').click(function(){
+            var catid;
+            catid = $(this).attr("data-catid");
+        $.ajax(
+        {
+            type:"GET",
+            url: "post/like-post/",
+            data:{
+                     post_id: catid
+            },
+            success: function( data ) 
+            {
+                var upvote ='#upvote'+data.id;
+                var downvote ='#downvote'+data.id;
+                $(upvote).html(data.upvote);
+                $(downvote).html(data.downvote);
+            }
+         })
+    });
+    $('.unlikebutton').click(function(){
+        var catid;
+        catid = $(this).attr("data-catid");
+
+    $.ajax(
+    {
+        type:"GET",
+        url: "post/unlike-post/",
+        data:{
+                 post_id: catid
+        },
+        success: function( data ) 
+        {
+            var upvote ='#upvote'+data.id;
+            var downvote ='#downvote'+data.id;
+            $(upvote).html(data.upvote);
+            $(downvote).html(data.downvote);
+    }
+     })
+    });
+    $('.follow').click(function(){
+        var catid;
+        catid=$(this).attr("data-catid")
+        $.ajax(
+    {
+        type:"GET",
+        url: "follow-unfollow/",
+        data:{
+                 post_id: catid
+        },
+        success: function( data ) 
+        {
+            var follow ='.'+data.id;
+            $(follow).html(data.follow);
+    }
+     })   
+    });
+
+    </script>
+{% endblock content %}

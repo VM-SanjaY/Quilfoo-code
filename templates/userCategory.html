@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% if category_errors %}
+    <span style="color:red"> {{category_errors.category}} </span><br>
+{% endif %}
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for category in categorys %}
+        <img src="{{category.image.url}}" alt="{{category.topic}}" style="width: 150px;">
+        <input type="checkbox" id="{{category.topic}}" name="{{category.id}}" value="{{category.id}}">
+        <label for="{{category.topic}}"> {{category.topic}}</label><br>
+        {% endfor %}   
+        <button type="submit">Next</button> 
+    </form>
+    
+</body>
+</html>

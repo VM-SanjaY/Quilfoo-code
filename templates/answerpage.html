@@ -1,0 +1,22 @@
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+{{question.ask}}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<label for="answer"></label>
+<textarea name="answer" id="answer" cols="30" rows="10"></textarea>
+<br>
+<br>
+<input type="file" name="filedata[]" id="filedata" multiple>
+<br>
+<br>
+<button type="submit">submit</button>
+</form>
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="comment">
+        <button type="submit">Submit</button><br>
+    </form>
+    {% if comments %}
+    {% for comment in comments %}
+        <form method="post">
+        {% csrf_token %}
+        <div class="profile">
+            <img src="{{ comment.profile.url }}" alt="" width="50">
+            <span>{{comment.name}}</span>
+        </div>
+            <span>{{comment.commentwriter.id}}</span>
+            <span>{{comment.description}}</span><br>    
+            <input type="text" name="{{comment.id}}">
+            <button type="submit">Submit</button>
+            <!-- <button>Like</button>
+            <button>UnLike</button> -->
+            {% if comment.name.id == request.user.id  %}
+            <a href="{% url 'postCommentDelete' comment.id %}">Delete</a>
+            {% endif %}
+            <!-- <button type="button" id="reply_btn" >Reply</button> -->
+        </form>
+            <div class="main" style="margin-left: 25px;">
+                {% for reply in comment.replys %}
+                <form action="{% url 'postCommentReply' reply.id %}" method="post">
+                    {% csrf_token %}
+                    <div class="reply" >
+                        <div class="profile">
+                            <img src="{{ reply.commentreplyuser.profilepic.url }}" alt="sdgs" width="50">
+                            <span>{{reply.commentreplyuser}}</span>
+                        </div>
+                        <p>{{reply.commentdetail}}</p>
+                        <input type="text" name="{{reply.id}}" id="reply" > 
+                        <!-- <button type="button" id="reply_btn" >Reply</button> -->
+                        <button type="submit">Submit</button>
+                        <!-- <button>Like</button>
+                        <button>UnLike</button> -->
+                        {% if reply.commentreplyuser.id == request.user.id  %}
+                        <a href="{% url 'postCommentReplyDelete' reply.id%}">Delete</a>
+                        {% endif %}
+                    </div>
+                </form>
+                    {% for sub_reply in comment.sub_replys %}
+                    {% if reply.id == sub_reply.subreplyof_id%}
+                    <form action="{% url 'postCommentReply' sub_reply.id %}" method="post">
+                        {% csrf_token %}
+                        <div class="sub_reply" style="margin-left: 25px;">
+                            <div class="profile">
+                                <img src="{{ sub_reply.commentreplyuser.profilepic.url }}" alt="sdgs" width="50">
+                                <span>{{sub_reply.commentreplyuser}}</span>
+                            </div>
+                            <p>{{sub_reply.commentdetail}}</p>
+                            
+                            <input type="text" name="{{sub_reply.id}}">
+                            <button type="submit">Submit</button>
+                            <!-- <button>Like</button>
+                            <button>UnLike</button> -->
+                        {% if sub_reply.commentreplyuser.id == request.user.id  %}
+                            <a href="{% url 'postCommentReplyDelete' sub_reply.id %}">Delete</a>
+                        {% endif %}
+                        </div>
+                    </form>
+                    {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </div>        
+    {% endfor %} 
+    {% endif %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $('#reply_btn').on('click', function () {
+            $('#reply').attr('type', 'text'); 
+            $('#reply').attr('id', 'reply_id'); 
+            $('#reply_btn').attr('id', 'reply_id_btn'); 
+
+         });
+    </script>
+</body>
+</html>

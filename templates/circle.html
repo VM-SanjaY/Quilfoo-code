@@ -1,0 +1,18 @@
+
+{% for group in groups %}
+    <a href="{% url 'circlemember' group.id %}"><img src="{{group.image.url}}" style="width: 150px; border-radius: 50px;" alt="derurji">
+    <p>{{group.titleheader}}</p>
+    <form method="post">
+        {% csrf_token %}
+        {% if group.id in grouplist %}
+        <input type="hidden" name="group_id" value="{{group.id}}">
+        <input type="hidden" name="member" value="nope">
+        <button type="submit" >unfollow</button>
+        {% else %}
+        <input type="hidden" name="group_id" value="{{group.id}}">
+        <input type="hidden" name="member" value="yes">
+        <button type="submit">follow</button>
+        {% endif %}
+            
+    </form></a>
+{% endfor %}

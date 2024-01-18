@@ -1,0 +1,96 @@
+{% load static %}
+<!-- {{qanda.questionform.questionby.webuser.username}} -->
+{{qanda.questionform.ask}}<br>
+
+{{qanda.description}}
+
+<br>
+{% for imagein in imageinanswer %}
+<img src="{{imagein.image.url}}" style="width: 350px;" alt="drifrtik">
+{% endfor %}
+
+<h5>Comment</h5>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="comment">Comment</label>
+    <input type="text" name="comment" id="comment" placeholder="Add a comment" /><br>
+    <label for="imgInp"><img src="{% static 'img/galeryupload.png' %}" style="width: 30px; margin-bottom: 15px; margin-top: 15px;" alt="fggh"></label>
+    <input type="file" style="display: none;" name="commentimage[]" accept="image/*" id="imgInp" value="filefield" multiple/><br>
+    <img id="blah" src="#" alt="your image" style="width: 50px; border-radius: 20px;" />
+    {% if request.user.is_authenticated %}
+        <button type="submit">Add</button>
+    {% else %}
+        <button type="button">Login to add</button>
+    {% endif %}
+    
+    <hr>
+</form>
+
+{% for comment in comments %}
+<div class="comment">
+    {{ comment.commentanswerwriter.webuser.username }}<br>
+    {{ comment.commentanswerdetail }}<br> 
+
+    <!-- Comment Reply Form -->
+    <form method="post" style="margin-left: 30px;">
+        {% csrf_token %}
+        <input type="hidden" name="parent_comment_id" value="{{ comment.id }}">
+        <label for="reply">Reply</label>
+        <input type="text" name="reply" placeholder="Add a reply" />
+        {% if request.user.is_authenticated %}
+            <button type="submit">Add</button>
+        {% else %}
+            <button type="button">Login to add</button>
+        {% endif %}
+    </form>
+
+    <!-- Display Replies -->
+    {% for reply in replys %}
+        {% if reply.Commentanswerid.id == comment.id %}
+        <form method="post" style="margin-left: 25px;">
+            {% csrf_token %}
+            {% if reply.Commentanswerid.id == reply.subreplyofanswer.id %}
+
+                <div style="margin-left: 150px; margin-top: 10px;">
+                    {{reply.commentanswerreplyuser.webuser.username}}<br>
+                    {{reply.replydetail}}<br>
+                    <input type="hidden" name="parent_comment_id" value="{{ comment.id }}">
+                    <input type="hidden" name="parent_reply_id" value="{{ reply.id }}">
+                    <label style="margin-left: 50px;" for="reply3">reply</label>
+                    <input style="margin-left: 5px; margin-top: 5px;" type="text" name="reply3" id="reply3" placeholder="Add a reply" />
+            
+                    {% if request.user.is_authenticated %}<button type="submit">Add</button>{% else %} <button type="button">login to add</button> {% endif %}
+                </div>
+
+            {% elif reply.subreplyofanswer.id > reply.Commentanswerid.id %}
+                <div style="margin-left: 200px; margin-top: 10px;">
+                    {{reply.commentanswerreplyuser.webuser.username}}<br>
+                    {{reply.replydetail}}<br>
+
+                </div>
+            {% else %}
+                <div style="margin-left: 50px;">
+                    {{reply.commentanswerreplyuser.webuser.username}}<br>
+                    {{reply.replydetail}}<br>
+                    <input type="hidden" name="parent_comment_id" value="{{ comment.id }}">
+                    <input type="hidden" name="parent_reply_id" value="{{ reply.id }}">
+                    <label style="margin-left: 50px;" for="reply2">reply</label>
+                    <input style="margin-left: 5px; margin-top: 5px;" type="text" name="reply2" id="reply2" placeholder="Add a reply" />
+            
+                    {% if request.user.is_authenticated %}<button type="submit">Add</button>{% else %} <button type="button">login to add</button> {% endif %}
+                </div>
+            {% endif %}
+
+        </form>        
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+<script>
+    imgInp.onchange = evt => {
+      const [file] = imgInp.files
+      if (file) {
+        blah.src = URL.createObjectURL(file)
+      }
+    }
+  </script>

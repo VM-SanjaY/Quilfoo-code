@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src="{% static 'js/custom.js' %}"></script>
+</head>
+{% include 'include/topNave.html' %}
+<body>
+    {% include 'include/sideNave.html' %}
+    {% block content %}
+
+
+    {% endblock content %}
+    <script>
+        $(document).ready(function(){
+         $('.user-profile').click(function(){
+             $(this).toggleClass('open');
+             $(".popupsec ul").toggleClass('active');
+         });
+     });
+    </script>
+     
+</body>
+
+</html>
