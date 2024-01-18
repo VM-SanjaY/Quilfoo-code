@@ -1,0 +1,84 @@
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: 'inter', sans-serif !important;
+}
+
+p {
+    font-family: 'inter', sans-serif !important;
+}
+
+a {
+    font-family: 'inter', sans-serif !important;
+}
+label{
+    font-family: 'inter', sans-serif !important;
+}
+input{
+    font-family: 'inter', sans-serif !important;
+}
+
+
+/* Register page */
+
+.loginbg{
+    background-image: url("../img/bg.png"); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form_sec{
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    margin-top:20px;
+    margin-bottom: 20px;
+    display: block;
+    width: 540px;
+    max-width: 90%;
+}
+.form_head{
+    font-size: clamp(25px, 3vw, 32px);
+    color: #3B373C;
+}
+.submit_btn {
+    background: linear-gradient(91.08deg, #7C21AB -0.89%, #F603C9 99.18%);
+    border: none;
+    padding: 16px 0px;
+    border-radius:6px;
+}
+.login_txt{
+    color: #8E1DAF;
+    text-decoration: none;
+}
+
+
+/* Responsive */
+
+@media only screen and (max-width:667px) {
+    .loginbg{
+        background-position: center center;
+    }
+}
+
+/* Login page */
+.form_desc{
+    font-size: clamp(16px, 3vw, 18px);
+    color: #606060;
+    line-height:28.8px;
+    font-weight: 400;
+}
